@@ -1,0 +1,36 @@
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
+
+keyVaultName = "[keyvaultName]"
+KVUri = f"https://[keyvaultURI].vault.azure.net"
+ENV_VARIABLE_1 = "ENV-VARIABLE-1"
+ENV_VARIABLE_2 = "ENV-VARIABLE-2"
+ENV_VARIABLE_3 = "ENV-VARIABLE-3"
+ENV_VARIABLE_4 = "ENV-VARIABLE-4"
+ENV_VARIABLE_5 = "ENV-VARIABLE-5"
+ENV_VARIABLE_6 = "ENV-VARIABLE-6"
+ENV_VARIABLE_7 = "ENV-VARIABLE-7"
+ENV_VARIABLE_8 = "ENV-VARIABLE-8"
+
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KVUri, credential=credential)
+retrieved_secret_ENV_VARIABLE_1 = client.get_secret(ENV_VARIABLE_1)
+retrieved_secret_ENV_VARIABLE_2 = client.get_secret(ENV_VARIABLE_2)
+retrieved_secret_ENV_VARIABLE_3 = client.get_secret(ENV_VARIABLE_3)
+retrieved_secret_ENV_VARIABLE_4 = client.get_secret(ENV_VARIABLE_4)
+retrieved_secret_ENV_VARIABLE_5 = client.get_secret(ENV_VARIABLE_5)
+retrieved_secret_ENV_VARIABLE_6 = client.get_secret(ENV_VARIABLE_6)
+retrieved_secret_ENV_VARIABLE_7 = client.get_secret(ENV_VARIABLE_6)
+retrieved_secret_ENV_VARIABLE_8 = client.get_secret(ENV_VARIABLE_8)
+
+print(
+"ENV_VARIABLE_1=" + str(retrieved_secret_ENV_VARIABLE_1.value) + '\n' 
++ "ENV_VARIABLE_2=" + str(retrieved_secret_ENV_VARIABLE_2.value) 
++ '\n' + "ENV_VARIABLE_3=" + str(retrieved_secret_ENV_VARIABLE_3.value) 
++ '\n'  + "ENV_VARIABLE_4=" + str(retrieved_secret_ENV_VARIABLE_4.value) 
++ '\n' + "ENV_VARIABLE_5=" + str(retrieved_secret_ENV_VARIABLE_5.value)
++ '\n' + "ENV_VARIABLE_6=" + str(retrieved_secret_ENV_VARIABLE_6.value)
++ '\n' + "ENV_VARIABLE_7=" + str(retrieved_secret_ENV_VARIABLE_7.value)
++ '\n' + "ENV_VARIABLE_8=" + str(retrieved_secret_ENV_VARIABLE_8.value)
+
+)
